@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDA ACADEMY</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#2e2e2e;
+    color:white;
+}
+
+header{
+    background:linear-gradient(135deg,#ff7b00,#ff9f43);
+    padding:25px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    margin-top:10px;
+}
+
+nav{
+    background:#3a3a3a;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    padding:15px;
+}
+
+nav button{
+    background:#ff7b00;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+nav button:hover{
+    background:#ff9500;
+}
+
+.page{
+    display:none;
+    padding:30px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.active{
+    display:block;
+}
+
+.card{
+    background:#404040;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    border-left:6px solid #ff7b00;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:8px;
+}
+
+.btn{
+    background:#ff7b00;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.progress{
+    background:#666;
+    height:25px;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    background:linear-gradient(to right,#ff7b00,#ffb366);
+    width:75%;
+    height:100%;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #666;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#ff7b00;
+}
+
+footer{
+    background:#1f1f1f;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🎮 CDA ACADEMY</h1>
+    <p>Organizador de Notas Escolares Gamificado</p>
+</header>
+
+<nav>
+    <button onclick="mostrar('dashboard')">🏠 Dashboard</button>
+    <button onclick="mostrar('nota')">➕ Nova Nota</button>
+    <button onclick="mostrar('materias')">📚 Matérias</button>
+    <button onclick="mostrar('xp')">⚡ XP</button>
+    <button onclick="mostrar('conquistas')">🏆 Conquistas</button>
+    <button onclick="mostrar('estatisticas')">📊 Estatísticas</button>
+</nav>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page active">
+
+<div class="card">
+<h2>👨‍🎓 Perfil do Jogador</h2>
+<p><strong>Nome:</strong> Aluno CDA</p>
+<p><strong>Nível:</strong> 7 - Estudante Mestre</p>
+</div>
+
+<div class="card">
+<h2>⚡ XP Atual</h2>
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+<p>750 / 1000 XP</p>
+</div>
+
+</section>
+
+<!-- NOVA NOTA -->
+<section id="nota" class="page">
+
+<div class="card">
+<h2>➕ Adicionar Nova Nota</h2>
+
+<label>Matéria</label>
+<select>
+<option>Matemática</option>
+<option>Português</option>
+<option>História</option>
+<option>Geografia</option>
+<option>Ciências</option>
+</select>
+
+<label>Nota</label>
+<input type="number" min="0" max="10" placeholder="Digite a nota">
+
+<button class="btn">Salvar Nota</button>
+</div>
+
+</section>
+
+<!-- MATERIAS -->
+<section id="materias" class="page">
+
+<div class="card">
+<h2>📚 Suas Matérias</h2>
+
+<table>
+<tr>
+<th>Matéria</th>
+<th>Média</th>
+</tr>
+
+<tr>
+<td>Matemática</td>
+<td>8.5</td>
+</tr>
+
+<tr>
+<td>Português</td>
+<td>9.0</td>
+</tr>
+
+<tr>
+<td>História</td>
+<td>8.2</td>
+</tr>
+
+<tr>
+<td>Geografia</td>
+<td>7.8</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- XP -->
+<section id="xp" class="page">
+
+<div class="card">
+<h2>⚡ Sistema de XP</h2>
+
+<p>Nota acima de 8 = +50 XP</p>
+<p>Média acima de 9 = +100 XP</p>
+<p>Registrar 10 notas = +150 XP</p>
+
+<br>
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+<p>750 / 1000 XP</p>
+
+</div>
+
+</section>
+
+<!-- CONQUISTAS -->
+<section id="conquistas" class="page">
+
+<div class="card">
+<h2>🏆 Conquistas Desbloqueadas</h2>
+
+<ul>
+<li>🥇 Primeira Nota Registrada</li>
+<li>🥈 Média acima de 8</li>
+<li>🏅 500 XP Acumulados</li>
+<li>🎖️ 10 Notas Registradas</li>
+<li>👑 Estudante Mestre</li>
+</ul>
+
+</div>
+
+</section>
+
+<!-- ESTATISTICAS -->
+<section id="estatisticas" class="page">
+
+<div class="card">
+<h2>📊 Estatísticas Gerais</h2>
+
+<p>📚 Matérias cadastradas: 5</p>
+<p>📝 Notas registradas: 32</p>
+<p>📈 Média geral: 8.4</p>
+<p>⚡ XP acumulado: 750</p>
+<p>🏆 Conquistas: 5</p>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 CDA ACADEMY | Aprender nunca foi tão divertido.
+</footer>
+
+<script>
+function mostrar(id){
+
+const paginas = document.querySelectorAll('.page');
+
+paginas.forEach(p=>{
+    p.classList.remove('active');
+});
+
+document.getElementById(id).classList.add('active');
+
+}
+</script>
+
+</body>
+</html>
